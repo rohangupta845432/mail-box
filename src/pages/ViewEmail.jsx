@@ -39,11 +39,11 @@ function ViewEmail() {
   }
   return (
     <>
-      <div className="mb-5">
+      {/* <div className="mb-5">
         <Link className="btn btn-success" to="/">
           <FaArrowLeft /> Back
         </Link>
-      </div>
+      </div> */}
       <Card>
         <Card.Header>
           <h2>{data.subject}</h2>

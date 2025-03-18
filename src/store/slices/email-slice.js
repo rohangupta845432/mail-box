@@ -14,10 +14,13 @@ const emailSlice = createSlice({
     addEmail: (state, action) => {
       state.emails.push(action.payload.emailData);
     },
-    deleteEmail: (state, action) => {
-      state.emailsData = state.emailsData.filter(
-        (emailData) => emailData.id !== action.payload.id
-      );
+    deleteEmailToReceiver: (state, action) => {
+      console.log(action.payload.dbId);
+      state.emailsData.forEach((emailData) => {
+        if (emailData.dbId === action.payload.dbId) {
+          emailData.isReceverDelete = 1;
+        }
+      });
     },
   },
 });

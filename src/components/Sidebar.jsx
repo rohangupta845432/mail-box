@@ -4,9 +4,16 @@ import { LuLogOut } from "react-icons/lu";
 import { RiInboxLine } from "react-icons/ri";
 import { CiEdit } from "react-icons/ci";
 import "./Sidebar.css";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authAction } from "../store/slices/auth-slice";
 
 const Sidebar = ({ collapsed }) => {
+  const dispatch = useDispatch();
+  const logoutHandler = () => {
+    dispatch(authAction.logout());
+    console.log("logout");
+  };
   return (
     <div className={`sidebar ${collapsed ? "collapsed" : ""}`}>
       <h4 className="text-white text-center mt-3">Dashboard</h4>
@@ -45,7 +52,7 @@ const Sidebar = ({ collapsed }) => {
         </li>
 
         <li className="nav-item">
-          <a className="nav-link text-white">
+          <a className="nav-link text-white" onClick={logoutHandler}>
             <LuLogOut /> <span className="ms-2">Logout</span>
           </a>
         </li>

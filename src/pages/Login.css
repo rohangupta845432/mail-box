@@ -9,4 +9,5 @@
 .login-div > form {
   background: #fff;
   padding: 50px;
+  min-width: 400px;
 }

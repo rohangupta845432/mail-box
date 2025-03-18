@@ -1,0 +1,18 @@
+.email-item-row {
+  width: 100% !important;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap !important;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 20px;
+}
+.email-item-row > .circle {
+  width: 10px;
+  height: 10px;
+  background: #198754;
+  border-radius: 8px;
+  line-height: 40px;
+  margin-right: 20px;
+}

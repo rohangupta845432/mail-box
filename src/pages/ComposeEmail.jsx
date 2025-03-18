@@ -3,14 +3,17 @@ import PropTypes from "prop-types";
 import { Card, Form } from "react-bootstrap";
 import JoditEditor from "jodit-react";
 import { MAIL_BOX_URL } from "../urls";
+import { useSelector } from "react-redux";
 
 function ComposeEmail(props) {
-  const senderEmail = "e4seschoolindiapvtltd@gmail.com";
+  // const senderEmail = "e4seschoolindiapvtltd@gmail.com";
   const editor = useRef(null);
   const [content, setContent] = useState("");
   const [receiverEmailInput, setReceiverEmailInput] = useState("");
   const [subjectInput, setSubjectInput] = useState("");
   const [contentInput, setContentInput] = useState("");
+
+  const myEmail = useSelector((state) => state.auth.email);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -25,7 +28,7 @@ function ComposeEmail(props) {
       method: "POST",
       body: JSON.stringify({
         id: Date.now(),
-        senderEmail: senderEmail,
+        senderEmail: myEmail,
         receiverEmail: receiverEmailInput,
         subject: subjectInput,
         content: contentInput,

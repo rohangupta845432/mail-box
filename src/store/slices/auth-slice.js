@@ -16,9 +16,9 @@ const authSlice = createSlice({
       state.email = action.payload.email;
       state.isLogin = true;
       state.token = action.payload.token;
-      localStorage.getItem("email", action.payload.email);
-      localStorage.getItem("isLogin", true);
-      localStorage.getItem("token", action.payload.token);
+      localStorage.setItem("email", action.payload.email);
+      localStorage.setItem("isLogin", true);
+      localStorage.setItem("token", action.payload.token);
     },
     logout: (state, action) => {
       state.isLogin = false;
